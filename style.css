@@ -1,0 +1,134 @@
+/* Mobile-first: styles here apply to small screens by default. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 15px;
+  padding: 5px;
+  background-color: #f4f4f4;
+  color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.intro {
+  margin: 0 0 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+figure {
+  margin: 0;
+  padding: 12px;
+  background-color: #ffffff;
+  border: 5px solid #555555;
+  border-radius: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 5px solid #174ea6;
+  border-radius: 0;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+figure p {
+  margin-bottom: 0;
+}
+
+footer {
+  margin: 24px 0 12px;
+  text-align: center;
+}
+
+footer a {
+  color: #0645ad;
+  font-weight: bold;
+}
+
+footer a:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 4px;
+}
+
+/* Tablet: two columns; the final figure spans both columns. */
+@media screen and (min-width: 772px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  figure {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  figure:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Large screens: every third figure spans both columns; remove rounded borders. */
+@media screen and (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  figure:nth-child(3n) {
+    grid-column: 1 / -1;
+  }
+
+  figure {
+    border-radius: 0;
+  }
+}
+
+/* Respect the visitor's reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Dark color scheme with readable foreground and dark borders. */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #171717;
+    color: #fff2a8;
+  }
+
+  figure {
+    background-color: #242424;
+    border-color: #000000;
+  }
+
+  img {
+    border-color: #000000;
+  }
+
+  footer a {
+    color: #fff2a8;
+  }
+
+  footer a:focus-visible {
+    outline-color: #fff2a8;
+  }
+}
